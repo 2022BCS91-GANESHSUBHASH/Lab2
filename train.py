@@ -27,10 +27,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-
+# preprocessing
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 # Model
-model= LinearRegression()
+model= Lasso(alpha=0.1)
 model.fit(X_train, y_train)
 
 # Predictions
